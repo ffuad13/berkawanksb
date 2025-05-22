@@ -5,52 +5,48 @@ import { button as buttonStyles } from "@heroui/theme";
 
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+import { LoginIcon } from "@/components/icons";
 
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
-        <span className={title()}>Make&nbsp;</span>
-        <span className={title({ color: "violet" })}>beautiful&nbsp;</span>
+        <span className={title()}>Sistem Informasi&nbsp;</span>
         <br />
-        <span className={title()}>
-          websites regardless of your design experience.
-        </span>
-        <div className={subtitle({ class: "mt-4" })}>
-          Beautiful, fast and modern React UI library.
-        </div>
+        <span className={title()}>Kader Kesehatan Hewan</span>
+        <br />
+        <span className={title({ color: "violet" })}>(SIKAWAN)&nbsp;</span>
+        <div className={subtitle({ class: "mt-4" })}>Optimalisasi Pelayanan Kesehatan Hewan Berbasis Masyarakat Kabupaten Sumbawa Barat</div>
       </div>
 
       <div className="flex gap-3">
         <Link
-          isExternal
           className={buttonStyles({
             color: "primary",
             radius: "full",
             variant: "shadow",
           })}
-          href={siteConfig.links.docs}
+          href={siteConfig.navMenuItems[0].href}
         >
-          Documentation
+          Buat Laporan
         </Link>
         <Link
           isExternal
           className={buttonStyles({ variant: "bordered", radius: "full" })}
           href={siteConfig.links.github}
         >
-          <GithubIcon size={20} />
-          GitHub
+          <LoginIcon size={20} />
+          Masuk
         </Link>
       </div>
 
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <Snippet hideCopyButton hideSymbol variant="bordered">
           <span>
             Get started by editing <Code color="primary">app/page.tsx</Code>
           </span>
         </Snippet>
-      </div>
+      </div> */}
     </section>
   );
 }
