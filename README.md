@@ -1,53 +1,67 @@
-# Next.js & HeroUI Template
+# SIKAWAN (Sistem Informasi Kader Kesehatan Hewan)
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+SIKAWAN adalah platform digital yang dirancang untuk optimalisasi pelayanan kesehatan hewan berbasis masyarakat di Kabupaten Sumbawa Barat. Sistem ini memungkinkan kader kesehatan hewan untuk melaporkan dan mengelola kasus kesehatan hewan dengan lebih efisien.
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+## Fitur Utama
 
-## Technologies Used
+- 📝 Pelaporan Kasus Kesehatan Hewan
+- 🌙 Mode Gelap/Terang
+- 🔍 Pencarian dan Filter Laporan
+- 👥 Manajemen Kader Kesehatan
+- 📊 Dashboard Monitoring
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+## Teknologi
 
-## How to Use
+- [Next.js 14](https://nextjs.org/docs/getting-started) - Framework React untuk produksi
+- [HeroUI v2](https://heroui.com/) - Komponen UI modern dan aksesibel
+- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utility-first
+- [Next-themes](https://github.com/pacocoursey/next-themes) - Tema gelap/terang
 
-### Use the template with create-next-app
+## Memulai Pengembangan
 
-To create a new project based on this template using `create-next-app`, run the following command:
-
+1. Clone repositori:
 ```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
+git clone https://github.com/yourusername/sikawan.git
+cd sikawan
 ```
 
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-### Run the development server
+3. Copy file environment dan sesuaikan dengan konfigurasi lokal:
+```bash
+cp .env.example .env
+```
 
+4. Jalankan migrasi database:
+```bash
+npx prisma migrate dev
+```
+
+5. Jalankan development server:
 ```bash
 npm run dev
 ```
 
-### Setup pnpm (optional)
+Buka [http://localhost:3000](http://localhost:3000) dengan browser untuk melihat hasilnya.
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+## Struktur Proyek
 
-```bash
-public-hoist-pattern[]=*@heroui/*
+```
+app/                # Routing dan halaman Next.js
+├── api/           # API endpoints
+├── lapor/         # Halaman form pelaporan
+└── laporan/       # Halaman daftar laporan
+components/        # Komponen React yang dapat digunakan kembali
+config/           # Konfigurasi aplikasi
+lib/             # Utilitas dan helper
+types/           # TypeScript type definitions
 ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+## Dikembangkan Oleh
 
-## License
+DINAS PERTANIAN KABUPATEN SUMBAWA BARAT
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
