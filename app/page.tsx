@@ -7,8 +7,11 @@ import { LoginIcon } from "@/components/icons";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-xl text-center justify-center">
+    <section
+      className="flex flex-col items-center justify-center gap-4 min-h-screen w-full absolute inset-0 bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: 'url("/images/roo.webp")' }}
+    >
+      <div className="inline-block max-w-3xl text-center justify-center z-10 bg-background/70 p-8 rounded-xl backdrop-blur-md shadow-lg">
         <span className={title()}>Sistem Informasi&nbsp;</span>
         <br />
         <span className={title()}>Kader Kesehatan Hewan</span>
@@ -40,14 +43,6 @@ export default function Home() {
           Masuk
         </Link>
       </div>
-
-      {/* <div className="mt-8">
-        <Snippet hideCopyButton hideSymbol variant="bordered">
-          <span>
-            Get started by editing <Code color="primary">app/page.tsx</Code>
-          </span>
-        </Snippet>
-      </div> */}
     </section>
   );
 }

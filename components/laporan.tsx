@@ -15,42 +15,6 @@ import { Tooltip } from "@heroui/tooltip";
 import { EyeIcon, EditIcon, DeleteIcon } from "@/components/icons";
 import DetailModal from "@/components/detailModal";
 
-/* const rows = [
-  {
-    key: "1",
-    perihal: "Vaksinasi HPR",
-    waktu: {
-      hari: "Kamis",
-      tanggal: "24 April 2025",
-      pukul: "09.00 Wita",
-    },
-    tempat: "Kelurahan Menala",
-    pelaksana: ["Keswan Kec.Taliwang", "Bhabinkamtibmas"],
-    sasaran: "Pemilik Hewan Peliharaan",
-    bentukKegiatan: `bhaboin`,
-    hasilYangDicapai: "Giat berjalan aman dan lancar",
-    pelapor: "Marisol",
-    status: "aktif",
-  },
-  {
-    key: "2",
-    perihal: "Vaksinasi HPR",
-    waktu: {
-      hari: "Kamis",
-      tanggal: "24 April 2025",
-      pukul: "09.00 Wita",
-    },
-    tempat: "Kelurahan Menala",
-    pelaksana: ["Keswan Kec.Taliwang", "Bhabinkamtibmas"],
-    sasaran: "Pemilik Hewan Peliharaan",
-    bentukKegiatan: `Bhabinkamtibmas Kelurahan Menala mendampingi Kegiatan dari Dinas Keswan Kec. Taliwang melakukan kegiatan Vaksinasi Hewan Peliharaan Seperti Anjing, dan Kucing.
-Vaksinasi kucing adalah proses pemberian vaksin untuk meningkatkan kekebalan tubuh kucing terhadap penyakit tertentu. Vaksinasi ini penting untuk melindungi kucing dari berbagai penyakit berbahaya, termasuk penyakit yang dapat menular ke manusia. Kegiatan Vaksinasi ini di laksanakan 2 hari di Kelurahan Menala, bertempat di Lingk. batu Ble Balisung & Lingkungan Menala Baru.`,
-    hasilYangDicapai: "Giat berjalan aman dan lancar",
-    pelapor: "Marisol",
-    status: "selesai",
-  },
-]; */
-
 const columns = [
   {
     key: "perihal",
@@ -147,7 +111,7 @@ export default function Laporan() {
                   onClick={() => openModal(laporan)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault(); // Needed for space key to prevent scrolling
+                      e.preventDefault();
                       openModal(laporan);
                     }
                   }}

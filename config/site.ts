@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "SIKAWAN",
+  name: "SIKAWAN - Sistem Informasi Kader Kesehatan Hewan",
   description:
     "Sistem Informasi Pelaporan Kader Kesehatan Hewan Sumbawa Barat.",
   navItems: [
@@ -22,26 +22,6 @@ export const siteConfig = {
     {
       label: "Lihat Laporan",
       href: "/laporan",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
     },
     {
       label: "Logout",

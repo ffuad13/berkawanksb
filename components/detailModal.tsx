@@ -6,24 +6,7 @@ import {
   ModalFooter,
 } from "@heroui/modal";
 
-type Laporan = {
-  perihal: string;
-  tempat: string;
-  pelapor: string;
-  status: string;
-  tanggal: string;
-  waktu?: string;
-  pelaksana?: string[];
-  sasaran?: string;
-  bentuk_kegiatan?: string;
-  hasilYangDicapai?: string;
-};
-
-type DetailModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-  data: Laporan | null;
-};
+import { DetailModalProps } from "@/types/entities";
 
 export default function DetailModal({
   isOpen,

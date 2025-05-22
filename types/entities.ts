@@ -6,6 +6,25 @@ export type LaporanInput = {
   pelaksana: string;
   sasaran: string;
   bentuk_kegiatan: string;
-  tanggal: string; // Format: YYYY-MM-DD
-  waktu: string; // Format: HH:MM
+  tanggal: string;
+  waktu: string;
+};
+
+export type Laporan = {
+  perihal: string;
+  tempat: string;
+  pelapor: string;
+  status: string;
+  tanggal: string;
+  waktu?: string;
+  pelaksana?: string[];
+  sasaran?: string;
+  bentuk_kegiatan?: string;
+  hasilYangDicapai?: string;
+};
+
+export type DetailModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  data: Laporan | null;
 };

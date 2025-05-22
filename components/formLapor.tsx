@@ -32,7 +32,7 @@ export default function FormLapor() {
             await handleInsertLaporan(formData);
 
             setAction(`Laporan terkirim`);
-          } catch (error) {
+          } catch (e) {
             setAction("Gagal mengirim laporan.");
           }
         });
