@@ -1,11 +1,10 @@
-import sql from '@/config/db'
-import { LaporanInput } from '@/types/entities';
-
+import sql from "@/config/db";
+import { LaporanInput } from "@/types/entities";
 
 export async function insertLaporan(data: LaporanInput) {
   const {
     user_id,
-		pelapor,
+    pelapor,
     perihal,
     tempat,
     pelaksana,
@@ -43,7 +42,7 @@ export async function insertLaporan(data: LaporanInput) {
 
     return result[0];
   } catch (error) {
-    console.error('Failed to insert laporan:', error);
+    console.error("Failed to insert laporan:", error);
     throw error;
   }
 }
@@ -53,9 +52,10 @@ export async function getAllLaporan() {
     const results = await sql`
       SELECT * FROM laporan ORDER BY created_at DESC;
     `;
+
     return results;
   } catch (error) {
-    console.error('Error fetching laporan:', error);
+    console.error("Error fetching laporan:", error);
     throw error;
   }
 }

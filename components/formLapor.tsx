@@ -6,7 +6,9 @@ import { Input, Textarea } from "@heroui/input";
 import { Button } from "@heroui/button";
 import { DatePicker } from "@heroui/date-picker";
 import { TimeInput } from "@heroui/date-input";
+
 import { ClockCircleLinearIcon } from "./icons";
+
 import { handleInsertLaporan } from "@/actions/laporan";
 
 export default function FormLapor() {
@@ -16,41 +18,54 @@ export default function FormLapor() {
   return (
     <Form
       className="w-full max-w-xs flex flex-col gap-4 my-4"
-      onReset={() => setAction('reset')}
+      onReset={() => setAction("reset")}
       onSubmit={(e) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
-        formData.set('user_id', '95a97aac-a679-4123-878a-e947deb878ab');
-        formData.set('pelapor', 'Marisol');
+
+        formData.set("user_id", "95a97aac-a679-4123-878a-e947deb878ab");
+        formData.set("pelapor", "Marisol");
 
         startTransition(async () => {
           try {
-            const result = await handleInsertLaporan(formData);
+            await handleInsertLaporan(formData);
+
             setAction(`Laporan terkirim`);
           } catch (error) {
-            console.error(error);
-            setAction('Gagal mengirim laporan.');
+            setAction("Gagal mengirim laporan.");
           }
         });
       }}
     >
-      <Input errorMessage="Silakan isi perihal" label="Perihal" labelPlacement="outside" name="perihal" type="text" />
+      <Input
+        errorMessage="Silakan isi perihal"
+        label="Perihal"
+        labelPlacement="outside"
+        name="perihal"
+        type="text"
+      />
 
       <div className="flex gap-4">
         <TimeInput
+          className="flex-1"
+          hourCycle={24}
+          label="Waktu"
+          name="waktu"
           startContent={
             <ClockCircleLinearIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
           }
-          hourCycle={24}
-          label="Waktu"
-          className="flex-1"
-          name="waktu"
         />
         <DatePicker className="flex-1" label="Tanggal" name="tanggal" />
       </div>
 
-      <Input errorMessage="Silakan isi tempat" label="Tempat" labelPlacement="outside" name="tempat" type="text" />
+      <Input
+        errorMessage="Silakan isi tempat"
+        label="Tempat"
+        labelPlacement="outside"
+        name="tempat"
+        type="text"
+      />
 
       <Input
         errorMessage="Silakan isi pelaksana"
@@ -60,19 +75,25 @@ export default function FormLapor() {
         type="text"
       />
 
-      <Input errorMessage="Silakan isi sasaran" label="Sasaran" labelPlacement="outside" name="sasaran" type="text" />
+      <Input
+        errorMessage="Silakan isi sasaran"
+        label="Sasaran"
+        labelPlacement="outside"
+        name="sasaran"
+        type="text"
+      />
 
       <Textarea
+        isClearable
         errorMessage="Silakan isi bentuk kegiatan"
         label="Bentuk Kegiatan"
         labelPlacement="outside"
         name="bentuk_kegiatan"
         placeholder="Jelaskan bentuk kegiatan"
-        isClearable
       />
 
       <div className="flex gap-2">
-        <Button color="primary" type="submit" isLoading={isPending}>
+        <Button color="primary" isLoading={isPending} type="submit">
           Kirim
         </Button>
         <Button type="reset" variant="flat">

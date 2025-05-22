@@ -5,7 +5,7 @@ export default function BlogPage() {
   return (
     <div>
       <h1 className={title()}>Laporan Kegiatan</h1>
-      <Laporan/>
+      <Laporan />
     </div>
   );
 }

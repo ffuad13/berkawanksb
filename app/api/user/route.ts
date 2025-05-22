@@ -1,12 +1,13 @@
-export async function GET(request: Request) {
+export async function GET() {
   // For example, fetch data from your DB here
   const users = [
-    { id: 1, name: 'Alice' },
-    { id: 2, name: 'Bob' }
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" },
   ];
+
   return new Response(JSON.stringify(users), {
     status: 200,
-    headers: { 'Content-Type': 'application/json' }
+    headers: { "Content-Type": "application/json" },
   });
 }
 
@@ -20,6 +21,6 @@ export async function POST(request: Request) {
 
   return new Response(JSON.stringify(newUser), {
     status: 201,
-    headers: { 'Content-Type': 'application/json' }
+    headers: { "Content-Type": "application/json" },
   });
 }

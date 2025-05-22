@@ -1,4 +1,10 @@
-import {  Modal,  ModalContent,  ModalHeader,  ModalBody,  ModalFooter, useDisclosure} from "@heroui/modal";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@heroui/modal";
 
 type Laporan = {
   perihal: string;
@@ -6,7 +12,7 @@ type Laporan = {
   pelapor: string;
   status: string;
   tanggal: string;
-  waktu?: string
+  waktu?: string;
   pelaksana?: string[];
   sasaran?: string;
   bentuk_kegiatan?: string;
@@ -19,25 +25,51 @@ type DetailModalProps = {
   data: Laporan | null;
 };
 
-export default function DetailModal({ isOpen, onClose, data }: DetailModalProps) {
+export default function DetailModal({
+  isOpen,
+  onClose,
+  data,
+}: DetailModalProps) {
   if (!data) return null;
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalContent>
-        <ModalHeader className="flex flex-col gap-1">Detail Laporan</ModalHeader>
+        <ModalHeader className="flex flex-col gap-1">
+          Detail Laporan
+        </ModalHeader>
         <ModalBody>
           <div className="space-y-2 text-sm">
-            <p><strong>Perihal:</strong> {data.perihal}</p>
-            <p><strong>Tempat:</strong> {data.tempat}</p>
-            <p><strong>Pelapor:</strong> {data.pelapor}</p>
-            <p><strong>Status:</strong> {data.status}</p>
-            <p><strong>Hari:</strong> {data.waktu}</p>
-            <p><strong>Tanggal:</strong> {data.tanggal}</p>
-            <p><strong>Pelaksana:</strong> {data.pelaksana}</p>
-            <p><strong>Sasaran:</strong> {data.sasaran}</p>
-            <p><strong>Bentuk Kegiatan:</strong> {data.bentuk_kegiatan}</p>
-            <p><strong>Hasil:</strong> {data.hasilYangDicapai}</p>
+            <p>
+              <strong>Perihal:</strong> {data.perihal}
+            </p>
+            <p>
+              <strong>Tempat:</strong> {data.tempat}
+            </p>
+            <p>
+              <strong>Pelapor:</strong> {data.pelapor}
+            </p>
+            <p>
+              <strong>Status:</strong> {data.status}
+            </p>
+            <p>
+              <strong>Hari:</strong> {data.waktu}
+            </p>
+            <p>
+              <strong>Tanggal:</strong> {data.tanggal}
+            </p>
+            <p>
+              <strong>Pelaksana:</strong> {data.pelaksana}
+            </p>
+            <p>
+              <strong>Sasaran:</strong> {data.sasaran}
+            </p>
+            <p>
+              <strong>Bentuk Kegiatan:</strong> {data.bentuk_kegiatan}
+            </p>
+            <p>
+              <strong>Hasil:</strong> {data.hasilYangDicapai}
+            </p>
           </div>
         </ModalBody>
         <ModalFooter>

@@ -1,6 +1,4 @@
 import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
 import { button as buttonStyles } from "@heroui/theme";
 
 import { siteConfig } from "@/config/site";
@@ -16,7 +14,10 @@ export default function Home() {
         <span className={title()}>Kader Kesehatan Hewan</span>
         <br />
         <span className={title({ color: "violet" })}>(SIKAWAN)&nbsp;</span>
-        <div className={subtitle({ class: "mt-4" })}>Optimalisasi Pelayanan Kesehatan Hewan Berbasis Masyarakat Kabupaten Sumbawa Barat</div>
+        <div className={subtitle({ class: "mt-4" })}>
+          Optimalisasi Pelayanan Kesehatan Hewan Berbasis Masyarakat Kabupaten
+          Sumbawa Barat
+        </div>
       </div>
 
       <div className="flex gap-3">
