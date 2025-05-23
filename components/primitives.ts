@@ -51,3 +51,19 @@ export const subtitle = tv({
     fullWidth: true,
   },
 });
+
+export const quotedText = tv({
+  base: "border-l-4 border-default-300 pl-4 italic text-default-700 my-4",
+  variants: {
+    emphasize: {
+      true: "text-default-900 font-semibold",
+    },
+    compact: {
+      true: "text-sm leading-snug my-2",
+    },
+  },
+  defaultVariants: {
+    emphasize: false,
+    compact: false,
+  },
+});

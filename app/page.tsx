@@ -2,7 +2,7 @@ import { Link } from "@heroui/link";
 import { button as buttonStyles } from "@heroui/theme";
 
 import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
+import { subtitle, quotedText } from "@/components/primitives";
 import { LoginIcon } from "@/components/icons";
 
 export default function Home() {
@@ -12,14 +12,12 @@ export default function Home() {
       style={{ backgroundImage: 'url("/images/roo.webp")' }}
     >
       <div className="inline-block max-w-3xl text-center justify-center z-10 bg-background/70 p-8 rounded-xl backdrop-blur-md shadow-lg">
-        <span className={title()}>Sistem Informasi&nbsp;</span>
-        <br />
-        <span className={title()}>Kader Kesehatan Hewan</span>
-        <br />
-        <span className={title({ color: "violet" })}>(SIKAWAN)&nbsp;</span>
-        <div className={subtitle({ class: "mt-4" })}>
+        <div className={subtitle({ class: "mt-4 font-bold" })}>
           Optimalisasi Pelayanan Kesehatan Hewan Berbasis Masyarakat Kabupaten
           Sumbawa Barat
+        </div>
+        <div className={quotedText({class: "mt-4"})}>
+          "Bersama Kader Wujudkan Kesehatan Hewan"
         </div>
       </div>
 

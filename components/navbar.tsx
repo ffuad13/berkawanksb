@@ -57,9 +57,9 @@ export const Navbar = () => {
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
             <div className="flex flex-col leading-tight">
-              <p className="font-bold text-inherit">SIKAWAN</p>
+              <p className="font-bold text-inherit">BERKAWAN</p>
               <p className="text-xs tracking-normal text-default-500">
-                Sistem Informasi Kader Kesehatan Hewan
+                Basis Elektronik Kader Kesehatan Hewan
               </p>
             </div>
           </NextLink>
@@ -87,10 +87,12 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+        <NavbarItem className="hidden lg:flex">
+          <ThemeSwitch />
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
-        <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
 
@@ -115,6 +117,9 @@ export const Navbar = () => {
               </Link>
             </NavbarMenuItem>
           ))}
+          <NavbarMenuItem className="flex justify-center">
+            <ThemeSwitch />
+          </NavbarMenuItem>
         </div>
       </NavbarMenu>
     </HeroUINavbar>
