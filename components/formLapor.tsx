@@ -8,17 +8,14 @@ import { DatePicker } from "@heroui/date-picker";
 import { TimeInput } from "@heroui/date-input";
 
 import { ClockCircleLinearIcon } from "./icons";
-
 import { handleInsertLaporan } from "@/actions/laporan";
 
 export default function FormLapor() {
-  const [action, setAction] = React.useState("");
   const [isPending, startTransition] = React.useTransition();
 
   return (
     <Form
       className="w-full max-w-xs flex flex-col gap-4 my-4"
-      onReset={() => setAction("reset")}
       onSubmit={(e) => {
         e.preventDefault();
 
@@ -30,21 +27,13 @@ export default function FormLapor() {
         startTransition(async () => {
           try {
             await handleInsertLaporan(formData);
-
-            setAction(`Laporan terkirim`);
           } catch (e) {
-            setAction("Gagal mengirim laporan.");
+            console.error(e);
           }
         });
       }}
     >
-      <Input
-        errorMessage="Silakan isi perihal"
-        label="Perihal"
-        labelPlacement="outside"
-        name="perihal"
-        type="text"
-      />
+      <Input errorMessage="Silakan isi perihal" label="Perihal" labelPlacement="outside" name="perihal" type="text" />
 
       <div className="flex gap-4">
         <TimeInput
@@ -59,13 +48,7 @@ export default function FormLapor() {
         <DatePicker className="flex-1" label="Tanggal" name="tanggal" />
       </div>
 
-      <Input
-        errorMessage="Silakan isi tempat"
-        label="Tempat"
-        labelPlacement="outside"
-        name="tempat"
-        type="text"
-      />
+      <Input errorMessage="Silakan isi tempat" label="Tempat" labelPlacement="outside" name="tempat" type="text" />
 
       <Input
         errorMessage="Silakan isi pelaksana"
@@ -75,13 +58,7 @@ export default function FormLapor() {
         type="text"
       />
 
-      <Input
-        errorMessage="Silakan isi sasaran"
-        label="Sasaran"
-        labelPlacement="outside"
-        name="sasaran"
-        type="text"
-      />
+      <Input errorMessage="Silakan isi sasaran" label="Sasaran" labelPlacement="outside" name="sasaran" type="text" />
 
       <Textarea
         isClearable
@@ -100,12 +77,6 @@ export default function FormLapor() {
           Batal
         </Button>
       </div>
-
-      {action && (
-        <div className="text-small text-default-500">
-          Action: <code>{action}</code>
-        </div>
-      )}
     </Form>
   );
 }
