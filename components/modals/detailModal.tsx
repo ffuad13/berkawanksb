@@ -4,9 +4,10 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-} from "@heroui/modal";
+} from "@heroui/react";
 
 import { DetailModalProps } from "@/types/entities";
+import { formatDateToLocal } from "@/lib/uitls";
 
 export default function DetailModal({
   isOpen,
@@ -15,10 +16,12 @@ export default function DetailModal({
 }: DetailModalProps) {
   if (!data) return null;
 
+  const timeDate = formatDateToLocal(data.tanggal, data.waktu).split("pukul");
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalContent>
-        <ModalHeader className="flex flex-col gap-1">
+        <ModalHeader className="flex flex-col gap-1 text-center">
           Detail Laporan
         </ModalHeader>
         <ModalBody>
@@ -36,10 +39,11 @@ export default function DetailModal({
               <strong>Status:</strong> {data.status}
             </p>
             <p>
-              <strong>Hari:</strong> {data.waktu}
+              <strong>Waktu:</strong> {timeDate[1] || "00:00"}
             </p>
             <p>
-              <strong>Tanggal:</strong> {data.tanggal}
+              <strong>Tanggal:</strong>{" "}
+              {timeDate[0] || "Tanggal tidak tersedia"}
             </p>
             <p>
               <strong>Pelaksana:</strong> {data.pelaksana}
