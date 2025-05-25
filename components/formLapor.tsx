@@ -1,17 +1,23 @@
 "use client";
 
 import React from "react";
-import { Form } from "@heroui/form";
-import { Input, Textarea } from "@heroui/input";
-import { Button } from "@heroui/button";
-import { DatePicker } from "@heroui/date-picker";
-import { TimeInput } from "@heroui/date-input";
+import { useRouter } from "next/navigation";
+import {
+  Form,
+  Input,
+  Textarea,
+  Button,
+  DatePicker,
+  TimeInput,
+} from "@heroui/react";
 
 import { ClockCircleLinearIcon } from "./icons";
+
 import { handleInsertLaporan } from "@/actions/laporan";
 
 export default function FormLapor() {
   const [isPending, startTransition] = React.useTransition();
+  const router = useRouter();
 
   return (
     <Form
@@ -27,13 +33,20 @@ export default function FormLapor() {
         startTransition(async () => {
           try {
             await handleInsertLaporan(formData);
-          } catch (e) {
-            console.error(e);
+            router.push("/laporan");
+          } catch {
+            alert("Gagal mengirim laporan. Silakan coba lagi.");
           }
         });
       }}
     >
-      <Input errorMessage="Silakan isi perihal" label="Perihal" labelPlacement="outside" name="perihal" type="text" />
+      <Input
+        errorMessage="Silakan isi perihal"
+        label="Perihal"
+        labelPlacement="outside"
+        name="perihal"
+        type="text"
+      />
 
       <div className="flex gap-4">
         <TimeInput
@@ -48,7 +61,13 @@ export default function FormLapor() {
         <DatePicker className="flex-1" label="Tanggal" name="tanggal" />
       </div>
 
-      <Input errorMessage="Silakan isi tempat" label="Tempat" labelPlacement="outside" name="tempat" type="text" />
+      <Input
+        errorMessage="Silakan isi tempat"
+        label="Tempat"
+        labelPlacement="outside"
+        name="tempat"
+        type="text"
+      />
 
       <Input
         errorMessage="Silakan isi pelaksana"
@@ -58,7 +77,13 @@ export default function FormLapor() {
         type="text"
       />
 
-      <Input errorMessage="Silakan isi sasaran" label="Sasaran" labelPlacement="outside" name="sasaran" type="text" />
+      <Input
+        errorMessage="Silakan isi sasaran"
+        label="Sasaran"
+        labelPlacement="outside"
+        name="sasaran"
+        type="text"
+      />
 
       <Textarea
         isClearable

@@ -16,8 +16,8 @@ export default function Home() {
           Optimalisasi Pelayanan Kesehatan Hewan Berbasis Masyarakat Kabupaten
           Sumbawa Barat
         </div>
-        <div className={quotedText({class: "mt-4"})}>
-          "Bersama Kader Wujudkan Kesehatan Hewan"
+        <div className={quotedText({ class: "mt-4" })}>
+          &#34;Bersama Kader Wujudkan Kesehatan Hewan&#34;
         </div>
       </div>
 

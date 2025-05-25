@@ -8,11 +8,11 @@ import {
   NavbarBrand,
   NavbarItem,
   NavbarMenuItem,
-} from "@heroui/navbar";
-import { Kbd } from "@heroui/kbd";
-import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
-import { link as linkStyles } from "@heroui/theme";
+  Kbd,
+  Link,
+  Input,
+  link as linkStyles,
+} from "@heroui/react";
 import NextLink from "next/link";
 import clsx from "clsx";
 import React from "react";
