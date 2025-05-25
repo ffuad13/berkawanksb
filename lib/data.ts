@@ -38,9 +38,8 @@ export async function insertLaporan(data: LaporanInput) {
         ${waktu}
       );
     `;
-  } catch (error) {
-    console.error("Failed to insert laporan:", error);
-    throw error;
+  } catch (e) {
+    throw new Error("Failed to insert laporan", { cause: e });
   }
 }
 
@@ -51,9 +50,8 @@ export async function getAllLaporan() {
     `;
 
     return results;
-  } catch (error) {
-    console.error("Error fetching laporan:", error);
-    throw error;
+  } catch (e) {
+    throw new Error("Failed to insert laporan", { cause: e });
   }
 }
 
@@ -84,8 +82,7 @@ export async function updateLaporan(data: LaporanInput & { id: string }) {
         waktu = ${waktu}
       WHERE id = ${id};
     `;
-  } catch (error) {
-    console.error("Failed to update laporan:", error);
-    throw error;
+  } catch (e) {
+    throw new Error("Failed to insert laporan", { cause: e });
   }
 }

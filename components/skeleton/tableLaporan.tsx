@@ -10,7 +10,7 @@ import {
   Skeleton,
 } from "@heroui/react";
 
-import {columns} from '@/components/laporanClient'
+import { columns } from "@/components/laporanClient";
 
 export default function SkeletonTableLaporan() {
   return (
