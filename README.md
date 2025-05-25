@@ -1,4 +1,4 @@
-# SIKAWAN (Sistem Informasi Kader Kesehatan Hewan)
+# BERKAWAN (Basis Elektronik Kader Kesehatan Hewan)
 
 SIKAWAN adalah platform digital yang dirancang untuk optimalisasi pelayanan kesehatan hewan berbasis masyarakat di Kabupaten Sumbawa Barat. Sistem ini memungkinkan kader kesehatan hewan untuk melaporkan dan mengelola kasus kesehatan hewan dengan lebih efisien.
 
@@ -8,7 +8,7 @@ SIKAWAN adalah platform digital yang dirancang untuk optimalisasi pelayanan kese
 - 🌙 Mode Gelap/Terang
 - 🔍 Pencarian dan Filter Laporan
 - 👥 Manajemen Kader Kesehatan
-- 📊 Dashboard Monitoring
+<!-- - 📊 Dashboard Monitoring -->
 
 ## Teknologi
 
@@ -22,13 +22,13 @@ SIKAWAN adalah platform digital yang dirancang untuk optimalisasi pelayanan kese
 
 1. Clone repositori:
 ```bash
-git clone https://github.com/yourusername/sikawan.git
-cd sikawan
+git clone https://github.com/ffuad13/berkawan.git
+cd berkawan
 ```
 
 2. Install dependencies:
 ```bash
-npm install
+pnpm install
 ```
 
 3. Copy file environment dan sesuaikan dengan konfigurasi lokal:
@@ -36,14 +36,14 @@ npm install
 cp .env.example .env
 ```
 
-4. Jalankan migrasi database:
+<!-- 4. Jalankan migrasi database:
 ```bash
 npx prisma migrate dev
-```
+``` -->
 
 5. Jalankan development server:
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Buka [http://localhost:3000](http://localhost:3000) dengan browser untuk melihat hasilnya.
