@@ -6,10 +6,6 @@ export const siteConfig = {
     "Basis Elektronik Kader Kesehatan Hewan Kabupaten Sumbawa Barat.",
   navItems: [
     {
-      label: "Beranda",
-      href: "/",
-    },
-    {
       label: "Lihat Laporan",
       href: "/laporan",
     },

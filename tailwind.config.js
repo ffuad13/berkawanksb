@@ -1,4 +1,5 @@
-import {heroui} from "@heroui/theme"
+const {heroui} = require("@heroui/react");
+const {theme1} = require('./config/theme')
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -16,7 +17,7 @@ const config = {
     },
   },
   darkMode: "class",
-  plugins: [heroui()],
+  plugins: [heroui(theme1)],
 }
 
 module.exports = config;

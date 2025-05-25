@@ -11,13 +11,14 @@ export type LaporanInput = {
 };
 
 export type Laporan = {
+  id: string;
   perihal: string;
   tempat: string;
   pelapor: string;
   status: string;
   tanggal: string;
   waktu?: string;
-  pelaksana?: string[];
+  pelaksana?: string;
   sasaran?: string;
   bentuk_kegiatan?: string;
   hasilYangDicapai?: string;
