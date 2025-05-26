@@ -14,8 +14,22 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  manifest: '/site.webmanifest',
   icons: {
     icon: "/favicon.ico",
+    apple: [
+      { url: '/apple-touch-icon.png' }
+    ],
+    shortcut: ['/favicon.ico'],
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: siteConfig.name,
+  },
+  applicationName: siteConfig.name,
+  formatDetection: {
+    telephone: false,
   },
 };
 

@@ -1,6 +1,6 @@
 # BERKAWAN (Basis Elektronik Kader Kesehatan Hewan)
 
-SIKAWAN adalah platform digital yang dirancang untuk optimalisasi pelayanan kesehatan hewan berbasis masyarakat di Kabupaten Sumbawa Barat. Sistem ini memungkinkan kader kesehatan hewan untuk melaporkan dan mengelola kasus kesehatan hewan dengan lebih efisien.
+BERKAWAN adalah platform digital yang dirancang untuk optimalisasi pelayanan kesehatan hewan berbasis masyarakat di Kabupaten Sumbawa Barat. Sistem ini memungkinkan kader kesehatan hewan untuk melaporkan dan mengelola kasus kesehatan hewan dengan lebih efisien.
 
 ## Fitur Utama
 
