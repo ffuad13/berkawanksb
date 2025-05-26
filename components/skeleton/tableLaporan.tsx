@@ -14,6 +14,7 @@ import { columns } from "@/components/laporanClient";
 
 export default function SkeletonTableLaporan() {
   return (
+    <div  className="mt-4">
     <Table aria-label="Skeleton data laporan">
       <TableHeader columns={columns}>
         {(column) => (
@@ -35,7 +36,7 @@ export default function SkeletonTableLaporan() {
                 className="text-xs sm:text-xs max-w-[200px] truncate sm:whitespace-normal"
               >
                 <Skeleton className="rounded-lg">
-                  <div className="h-3 w-24 bg-default-200" />
+                  <div className="h-3 w-20 bg-default-200" />
                 </Skeleton>
               </TableCell>
             ))}
@@ -43,5 +44,6 @@ export default function SkeletonTableLaporan() {
         ))}
       </TableBody>
     </Table>
+    </div>
   );
 }

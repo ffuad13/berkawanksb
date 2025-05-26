@@ -24,6 +24,10 @@ import { SearchIcon, Logo } from "@/components/icons";
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  const handleMenuToggle = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   const searchInput = (
     <Input
       aria-label="Search"
@@ -51,6 +55,7 @@ export const Navbar = () => {
       maxWidth="xl"
       position="sticky"
       onMenuOpenChange={setIsMenuOpen}
+      className="min-w-[320px]"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -64,7 +69,7 @@ export const Navbar = () => {
             </div>
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden xl:flex gap-4 justify-start ml-2">
+        <ul className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
@@ -93,7 +98,8 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
-        <NavbarMenuToggle />
+        <NavbarMenuToggle onClick={handleMenuToggle}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}/>
       </NavbarContent>
 
       <NavbarMenu>

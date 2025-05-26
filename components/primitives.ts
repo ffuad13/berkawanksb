@@ -53,7 +53,7 @@ export const subtitle = tv({
 });
 
 export const quotedText = tv({
-  base: "border-l-4 border-default-300 pl-4 italic text-default-700 my-4",
+  base: "border-l-1 border-default-300 pl-4 italic text-default-700 my-4",
   variants: {
     emphasize: {
       true: "text-default-900 font-semibold",

@@ -17,7 +17,7 @@ export default function Home() {
           Sumbawa Barat
         </div>
         <div className={quotedText({ class: "mt-4" })}>
-          &#34;Bersama Kader Wujudkan Kesehatan Hewan&#34;
+          &#34;Bersama Kader Wujudkan<br />Kesehatan Hewan&#34;
         </div>
       </div>
 
