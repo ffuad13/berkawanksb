@@ -11,7 +11,7 @@ const STATIC_ASSETS = [
   '/',
   '/lapor',
   '/laporan',
-  '/images/roo.webp',
+  '/images/livestock.webp',
   '/android-chrome-192x192.png',
   '/android-chrome-512x512.png',
   '/apple-touch-icon.png',

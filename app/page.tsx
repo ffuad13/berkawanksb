@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <section
       className="flex flex-col items-center justify-center gap-4 min-h-screen w-full absolute inset-0 bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: 'url("/images/roo.webp")' }}
+      style={{ backgroundImage: 'url("/images/livestock.webp")' }}
     >
       <div className="inline-block max-w-3xl text-center justify-center z-10 bg-background/70 p-8 rounded-xl backdrop-blur-md shadow-lg">
         <div className={subtitle({ class: "mt-4 font-bold" })}>
@@ -34,7 +34,7 @@ export default function Home() {
         </Link>
         <Link
           isExternal
-          className={buttonStyles({ variant: "bordered", radius: "full" })}
+          className={buttonStyles({ variant: "bordered", radius: "full", className: "bg-white" })}
           href={siteConfig.links.github}
         >
           <LoginIcon size={20} />
