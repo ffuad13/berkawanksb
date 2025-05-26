@@ -11,6 +11,7 @@ import {
   DatePicker,
   TimeInput,
 } from "@heroui/react";
+import {Time, parseDate} from '@internationalized/date';
 
 import { ClockCircleLinearIcon } from "@/components/icons";
 import { Laporan } from "@/types/entities";
@@ -23,6 +24,7 @@ interface EditModalProps {
 
 export default function EditModal({ isOpen, onClose, data }: EditModalProps) {
   if (!data) return null;
+  const waktu = data.waktu?.split(":");
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -54,7 +56,7 @@ export default function EditModal({ isOpen, onClose, data }: EditModalProps) {
                 hourCycle={24}
                 label="Waktu"
                 name="waktu"
-                // defaultValue={data.waktu}
+                defaultValue={new Time(parseInt(waktu?.[0] || "0"), parseInt(waktu?.[1] || "0"))}
                 startContent={
                   <ClockCircleLinearIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
                 }
@@ -63,7 +65,7 @@ export default function EditModal({ isOpen, onClose, data }: EditModalProps) {
                 className="flex-1"
                 label="Tanggal"
                 name="tanggal"
-                // defaultValue={data.tanggal}
+                defaultValue={parseDate(data.tanggal.split("T")[0]) as any}
               />
             </div>
 
