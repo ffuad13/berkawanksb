@@ -1,5 +1,5 @@
 import sql from "@/config/db";
-import { LaporanInput } from "@/types/entities";
+import { LaporanInput, LaporanUpdate } from "@/types/entities";
 
 export async function insertLaporan(data: LaporanInput) {
   const {
@@ -55,7 +55,7 @@ export async function getAllLaporan() {
   }
 }
 
-export async function updateLaporan(data: LaporanInput & { id: string }) {
+export async function updateLaporan(data: LaporanUpdate) {
   const {
     id,
     pelapor,
@@ -83,6 +83,6 @@ export async function updateLaporan(data: LaporanInput & { id: string }) {
       WHERE id = ${id};
     `;
   } catch (e) {
-    throw new Error("Failed to insert laporan", { cause: e });
+    throw new Error("Failed to update laporan", { cause: e });
   }
 }

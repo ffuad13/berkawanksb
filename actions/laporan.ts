@@ -1,21 +1,15 @@
 "use server";
 
-import { insertLaporan } from "@/lib/data";
+import { insertLaporan, updateLaporan } from "@/lib/data";
 
 export async function handleInsertLaporan(formData: FormData) {
-  const data = Object.fromEntries(formData) as Record<string, string>;
+  const { user_id, pelapor, perihal, tempat, pelaksana, sasaran, bentuk_kegiatan, tanggal, waktu } = Object.fromEntries(formData) as Record<string, string>;
 
-  const laporan = {
-    user_id: data.user_id,
-    pelapor: data.pelapor,
-    perihal: data.perihal,
-    tempat: data.tempat,
-    pelaksana: data.pelaksana,
-    sasaran: data.sasaran,
-    bentuk_kegiatan: data.bentuk_kegiatan,
-    tanggal: data.tanggal,
-    waktu: data.waktu,
-  };
+  return await insertLaporan({ user_id, pelapor, perihal, tempat, pelaksana, sasaran, bentuk_kegiatan, tanggal, waktu });
+}
 
-  return await insertLaporan(laporan);
+export async function handleUpdateLaporan(formData:FormData) {
+  const { id, pelapor, perihal, tempat, pelaksana, sasaran, bentuk_kegiatan, tanggal, waktu } = Object.fromEntries(formData) as Record<string, string>
+
+  return await updateLaporan({ id, pelapor, perihal, tempat, pelaksana, sasaran, bentuk_kegiatan, tanggal, waktu })
 }
