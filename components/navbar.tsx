@@ -63,7 +63,7 @@ export const Navbar = () => {
             <Logo />
             <div className="flex flex-col leading-tight">
               <p className="font-bold text-inherit">BERKAWAN</p>
-              <p className="text-xs tracking-normal text-default-500">
+              <p className="text-xs tracking-normal text-default-700 font-semibold">
                 Basis Elektronik Kader Kesehatan Hewan
               </p>
             </div>

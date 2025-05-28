@@ -40,13 +40,7 @@ export default function FormLapor() {
         });
       }}
     >
-      <Input
-        errorMessage="Silakan isi perihal"
-        label="Perihal"
-        labelPlacement="outside"
-        name="perihal"
-        type="text"
-      />
+      <Input errorMessage="Silakan isi perihal" label="Perihal" labelPlacement="outside" name="perihal" type="text" />
 
       <div className="flex gap-4">
         <TimeInput
@@ -61,13 +55,7 @@ export default function FormLapor() {
         <DatePicker className="flex-1" label="Tanggal" name="tanggal" />
       </div>
 
-      <Input
-        errorMessage="Silakan isi tempat"
-        label="Tempat"
-        labelPlacement="outside"
-        name="tempat"
-        type="text"
-      />
+      <Input errorMessage="Silakan isi tempat" label="Tempat" labelPlacement="outside" name="tempat" type="text" />
 
       <Input
         errorMessage="Silakan isi pelaksana"
@@ -77,13 +65,7 @@ export default function FormLapor() {
         type="text"
       />
 
-      <Input
-        errorMessage="Silakan isi sasaran"
-        label="Sasaran"
-        labelPlacement="outside"
-        name="sasaran"
-        type="text"
-      />
+      <Input errorMessage="Silakan isi sasaran" label="Sasaran" labelPlacement="outside" name="sasaran" type="text" />
 
       <Textarea
         isClearable
