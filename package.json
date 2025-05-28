@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix-dry-run"
   },
   "dependencies": {
     "@heroui/react": "^2.7.8",
@@ -16,7 +16,8 @@
     "clsx": "2.1.1",
     "framer-motion": "^12.12.2",
     "intl-messageformat": "10.7.16",
-    "next": "15.3.1",
+    "next": "15.3.2",
+    "next-cloudinary": "^6.16.0",
     "next-pwa": "^5.6.0",
     "next-themes": "0.4.6",
     "postgres": "^3.4.7",
@@ -27,7 +28,7 @@
     "@eslint/compat": "1.2.8",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.25.1",
-    "@next/eslint-plugin-next": "15.3.1",
+    "@next/eslint-plugin-next": "15.3.2",
     "@react-types/shared": "3.29.0",
     "@types/node": "22.15.3",
     "@types/react": "18.3.3",
@@ -36,7 +37,7 @@
     "@typescript-eslint/parser": "8.31.1",
     "autoprefixer": "10.4.21",
     "eslint": "9.25.1",
-    "eslint-config-next": "15.3.1",
+    "eslint-config-next": "15.4.0-canary.51",
     "eslint-config-prettier": "10.1.2",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
