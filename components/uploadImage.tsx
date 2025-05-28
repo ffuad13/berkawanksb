@@ -1,4 +1,5 @@
 import { Button } from "@heroui/react";
+import Image from 'next/image'
 import React from "react";
 import { CldUploadWidget, CloudinaryUploadWidgetInfo } from "next-cloudinary";
 
@@ -15,7 +16,7 @@ export default function UploadImage() {
         maxFiles: 3,
       }}
 			uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!}
-      onSuccess={(result, { widget }) => {
+      onSuccess={(result) => {
         setResources((prev) => [...prev, result?.info as CloudinaryUploadWidgetInfo]);
       }}
     >
@@ -35,7 +36,7 @@ export default function UploadImage() {
             <div className="flex gap-2 flex-wrap">
               {resources.map((resource, index) => (
                 <div key={index} className="relative">
-                  <img
+                  <Image
                     src={resource.thumbnail_url || resource.secure_url}
                     alt={`Upload ${index + 1}`}
                     className="w-24 h-24 object-cover rounded-md"
