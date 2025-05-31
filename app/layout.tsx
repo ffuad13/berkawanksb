@@ -57,12 +57,12 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex flex-col min-h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+            <main className="container mx-auto max-w-7xl pt-16 px-6 pb-16">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3 bg-background/70 backdrop-blur-sm z-50 relative">
+            <footer className="fixed bottom-0 left-0 w-full flex items-center justify-center py-3 bg-background/70 backdrop-blur-sm">
               <p className="text-sm text-default-600 text-center">
                 &copy; DINAS PERTANIAN KABUPATEN SUMBAWA BARAT{" "}
                 {new Date().getFullYear()}.

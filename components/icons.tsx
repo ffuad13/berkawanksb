@@ -4,14 +4,7 @@ import Image from "next/image";
 import { IconSvgProps } from "@/types";
 
 export const Logo = () => {
-  return (
-    <Image
-      alt="Picture of the author"
-      height={35}
-      src="/android-chrome-512x512.png"
-      width={35}
-    />
-  );
+  return <Image alt="Picture of the author" height={35} src="/android-chrome-512x512.png" width={35} />;
 };
 
 export const LoginIcon: React.FC<IconSvgProps> = ({ ...props }) => {
@@ -34,12 +27,7 @@ export const LoginIcon: React.FC<IconSvgProps> = ({ ...props }) => {
   );
 };
 
-export const MoonFilledIcon = ({
-  size = 24,
-  width,
-  height,
-  ...props
-}: IconSvgProps) => (
+export const MoonFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -56,12 +44,7 @@ export const MoonFilledIcon = ({
   </svg>
 );
 
-export const SunFilledIcon = ({
-  size = 24,
-  width,
-  height,
-  ...props
-}: IconSvgProps) => (
+export const SunFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -96,13 +79,7 @@ export const SearchIcon = (props: IconSvgProps) => (
       strokeLinejoin="round"
       strokeWidth="2"
     />
-    <path
-      d="M22 22L20 20"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-    />
+    <path d="M22 22L20 20" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
   </svg>
 );
 
@@ -241,23 +218,13 @@ export const ClockCircleLinearIcon = (props: IconSvgProps) => {
     >
       <g fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="12" cy="12" r="10" />
-        <path
-          d="M12 8v4l2.5 2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <path d="M12 8v4l2.5 2.5" strokeLinecap="round" strokeLinejoin="round" />
       </g>
     </svg>
   );
 };
 
-export const CameraIcon = ({
-  fill = "currentColor",
-  size,
-  height,
-  width,
-  ...props
-}: IconSvgProps) => {
+export const CameraIcon = ({ fill = "currentColor", size, height, width, ...props }: IconSvgProps) => {
   return (
     <svg
       fill="none"
@@ -276,3 +243,20 @@ export const CameraIcon = ({
     </svg>
   );
 };
+
+export const WavesSeparator = () => {
+  return (
+    <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+        className="relative block w-full h-[80px]"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          className="fill-background"
+        ></path>
+      </svg>
+  )
+}
