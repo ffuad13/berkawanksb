@@ -36,10 +36,10 @@ pnpm install
 cp .env.example .env
 ```
 
-<!-- 4. Jalankan migrasi database:
+4. Jalankan migrasi database:
 ```bash
-npx prisma migrate dev
-``` -->
+pnpx prisma migrate dev
+```
 
 5. Jalankan development server:
 ```bash
