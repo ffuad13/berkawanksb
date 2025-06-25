@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  Kader
+  Medik
+  Petugas
+  Tim_Teknis @map("Tim Teknis")
+}
+
+model User {
+  id           String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  namaDepan    String?   @db.VarChar(50)
+  namaBelakang String?   @db.VarChar(50)
+  email        String    @unique @db.VarChar(50)
+  password     String    @db.Text
+  isAdmin      Boolean   @default(false)
+  role         Role
+  wilayahKerja String?   @db.VarChar(255)
+  createdAt    DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt    DateTime  @default(now()) @db.Timestamp(6)
+  laporan      Laporan[]
+}
+
+model Laporan {
+  id             String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  userId         String    @db.Uuid
+  pelapor        String?   @db.VarChar(255)
+  perihal        String?   @db.VarChar(255)
+  tempat         String?   @db.VarChar(255)
+  pelaksana      String?   @db.VarChar(255)
+  sasaran        String?   @db.VarChar(255)
+  bentukKegiatan String?   @db.Text
+  tanggal        DateTime? @db.Date
+  waktu          DateTime? @db.Time
+  hasil          String?   @db.Text
+  status         String    @default("aktif") @db.VarChar(25)
+  createdAt      DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt      DateTime  @default(now()) @db.Timestamp(6)
+  user           User      @relation(fields: [userId], references: [id])
+  foto           Foto[]
+}
+
+model Foto {
+  id        String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  fileName  String? @db.VarChar(255)
+  imageUrl  String  @db.Text
+  laporanId String  @db.Uuid
+  laporan   Laporan @relation(fields: [laporanId], references: [id])
+}
