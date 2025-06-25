@@ -86,3 +86,18 @@ export async function updateLaporan(data: LaporanUpdate) {
     throw new Error("Failed to update laporan", { cause: e });
   }
 }
+
+export async function getUser(email: string) {
+  try {
+
+    const result = await sql`
+    SELECT * FROM userbkwn
+    WHERE email = ${email}
+    LIMIT 1;
+    `;
+
+    return result[0]
+  } catch (e) {
+    throw new Error("Failed to get user", { cause: e });
+  }
+}

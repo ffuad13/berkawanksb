@@ -1,3 +1,6 @@
+"use client"
+
+import React, { useState } from "react";
 import { Link } from "@heroui/link";
 import { button as buttonStyles } from "@heroui/theme";
 
@@ -5,8 +8,12 @@ import { siteConfig } from "@/config/site";
 import { subtitle, quotedText } from "@/components/primitives";
 import { LoginIcon, WavesSeparator } from "@/components/icons";
 import HomeAccord from "@/components/homeAccord";
+import {Button} from '@heroui/react'
+import LoginModal from "@/components/modals/loginModal";
 
 export default function Home() {
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
     <main
       className="flex flex-col min-h-screen w-full bg-cover bg-center bg-fixed absolute inset-0"
@@ -35,16 +42,17 @@ export default function Home() {
           >
             Buat Laporan
           </Link>
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full", className: "bg-white" })}
-            href={siteConfig.links.github}
-          >
+          <Button
+            className={buttonStyles({ variant: "bordered", radius: "full", className: "bg-white flex items-center gap-2" })}
+            onPress={() => setShowLogin(true)}
+            type="button">
             <LoginIcon size={20} />
             Masuk
-          </Link>
+          </Button>
         </div>
       </section>
+
+      <LoginModal open={showLogin} onClose={() => setShowLogin(false)} />
 
       <div className="relative w-full h-[150px]">
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
