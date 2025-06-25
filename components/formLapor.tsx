@@ -2,14 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import {
-  Form,
-  Input,
-  Textarea,
-  Button,
-  DatePicker,
-  TimeInput,
-} from "@heroui/react";
+import { Form, Input, Textarea, Button, DatePicker, TimeInput } from "@heroui/react";
 
 import { ClockCircleLinearIcon } from "./icons";
 
@@ -25,10 +18,18 @@ export default function FormLapor() {
       onSubmit={(e) => {
         e.preventDefault();
 
+        const user_id = typeof window !== "undefined" ? localStorage.getItem("user_id") : null;
+        const nama_depan = typeof window !== "undefined" ? localStorage.getItem("nama_depan") : null;
+
+        if (!user_id) {
+          alert("Anda harus login terlebih dahulu untuk mengirim laporan.");
+          return;
+        }
+
         const formData = new FormData(e.currentTarget);
 
-        formData.set("user_id", "95a97aac-a679-4123-878a-e947deb878ab");
-        formData.set("pelapor", "Marisol");
+        formData.set("user_id", user_id);
+        formData.set("pelapor", nama_depan || "");
 
         startTransition(async () => {
           try {

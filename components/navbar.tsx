@@ -3,6 +3,7 @@
 import {
   Navbar as HeroUINavbar,
   NavbarContent,
+  Button,
   NavbarMenu,
   NavbarMenuToggle,
   NavbarBrand,
@@ -108,13 +109,7 @@ export const Navbar = () => {
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
-                }
+                color={"foreground"}
                 href={item.href}
                 size="lg"
                 onClick={() => setIsMenuOpen(false)}
@@ -123,6 +118,20 @@ export const Navbar = () => {
               </Link>
             </NavbarMenuItem>
           ))}
+          <NavbarMenuItem>
+            <Button
+              color="danger"
+              variant="flat"
+              className="w-full"
+              onPress={() => {
+                localStorage.removeItem("user_id");
+                localStorage.removeItem("nama_depan");
+                alert("anda telah logout");
+              }}
+            >
+              Logout
+            </Button>
+          </NavbarMenuItem>
           <NavbarMenuItem className="flex justify-center">
             <ThemeSwitch />
           </NavbarMenuItem>

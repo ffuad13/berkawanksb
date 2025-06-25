@@ -19,10 +19,6 @@ export const siteConfig = {
       label: "Lihat Laporan",
       href: "/laporan",
     },
-    {
-      label: "Logout",
-      href: "/logout",
-    },
   ],
   links: {
     github: "https://github.com/heroui-inc/heroui",
