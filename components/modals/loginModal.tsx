@@ -24,6 +24,10 @@ export default function LoginModal({ open, onClose }: { open: boolean; onClose: 
 
       const data = await res.json();
 
+      if (password !== data.password) {
+        throw new Error()
+      }
+
       if (data && data.id && data.nama_depan) {
         // Store to localStorage
         localStorage.setItem("user_id", data.id);

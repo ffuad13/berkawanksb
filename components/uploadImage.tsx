@@ -1,11 +1,13 @@
 import { Button } from "@heroui/react";
-import Image from 'next/image'
+import Image from "next/image";
 import React from "react";
 import { CldUploadWidget, CloudinaryUploadWidgetInfo } from "next-cloudinary";
+import { handleInsertFoto } from "@/actions/laporan";
 
 import { CameraIcon } from "./icons";
+import { foto } from "@/types/entities";
 
-export default function UploadImage() {
+export default function UploadImage({ laporan_id }: foto) {
   const [resources, setResources] = React.useState<CloudinaryUploadWidgetInfo[]>([]);
 
   return (
@@ -15,9 +17,32 @@ export default function UploadImage() {
         multiple: true,
         maxFiles: 3,
       }}
-			uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!}
-      onSuccess={(result) => {
-        setResources((prev) => [...prev, result?.info as CloudinaryUploadWidgetInfo]);
+      uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!}
+      onSuccess={async (result) => {
+        console.log('result', result)
+        const info = result?.info as CloudinaryUploadWidgetInfo;
+
+        if (Array.isArray(info)) {
+          setResources((prev) => [...prev, ...info]);
+          await Promise.all(
+            info.map((file: CloudinaryUploadWidgetInfo) => {
+              if (file && file.secure_url && file.original_filename) {
+                return handleInsertFoto({
+                  laporan_id,
+                  file_name: file.original_filename,
+                  image_url: file.secure_url,
+                });
+              }
+            })
+          );
+        } else if (info && info.secure_url && info.original_filename) {
+          setResources((prev) => [...prev, info]);
+          await handleInsertFoto({
+            laporan_id,
+            file_name: info.original_filename,
+            image_url: info.secure_url,
+          });
+        }
       }}
     >
       {({ open }) => {
@@ -39,6 +64,8 @@ export default function UploadImage() {
                   <Image
                     src={resource.thumbnail_url || resource.secure_url}
                     alt={`Upload ${index + 1}`}
+                    width={96}
+                    height={96}
                     className="w-24 h-24 object-cover rounded-md"
                   />
                   <button

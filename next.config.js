@@ -12,6 +12,12 @@ const nextConfig = {
     },
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json'],
   },
+  images: {
+    remotePatterns: [{
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      }]
+  }
 };
 
 module.exports = withPWA(nextConfig);

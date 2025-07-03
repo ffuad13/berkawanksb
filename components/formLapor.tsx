@@ -27,7 +27,6 @@ export default function FormLapor() {
         }
 
         const formData = new FormData(e.currentTarget);
-
         formData.set("user_id", user_id);
         formData.set("pelapor", nama_depan || "");
 

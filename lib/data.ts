@@ -1,5 +1,5 @@
 import sql from "@/config/db";
-import { LaporanInput, LaporanUpdate } from "@/types/entities";
+import { foto, LaporanInput, LaporanUpdate } from "@/types/entities";
 
 export async function insertLaporan(data: LaporanInput) {
   const {
@@ -51,7 +51,7 @@ export async function getAllLaporan() {
 
     return results;
   } catch (e) {
-    throw new Error("Failed to insert laporan", { cause: e });
+    throw new Error("Failed to get laporan", { cause: e });
   }
 }
 
@@ -99,5 +99,29 @@ export async function getUser(email: string) {
     return result[0]
   } catch (e) {
     throw new Error("Failed to get user", { cause: e });
+  }
+}
+
+export async function insertFoto(data: foto) {
+  const {
+    laporan_id,
+    file_name,
+    image_url
+  } = data;
+
+  try {
+    await sql`
+      INSERT INTO foto (
+        laporan_id,
+        file_name,
+				image_url
+      ) VALUES (
+        ${laporan_id},
+        ${file_name},
+        ${image_url}
+      );
+    `;
+  } catch (e) {
+    throw new Error("Failed to insert laporan", { cause: e });
   }
 }

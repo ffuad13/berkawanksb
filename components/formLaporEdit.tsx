@@ -22,6 +22,13 @@ export default function FormLaporEdit(data: Laporan) {
       onSubmit={(e) => {
         e.preventDefault();
 
+        const user_id = typeof window !== "undefined" ? localStorage.getItem("user_id") : null;
+
+        if (!user_id) {
+          alert("Anda harus login terlebih dahulu untuk mengubah laporan.");
+          return;
+        }
+
         const formData = new FormData(e.currentTarget);
         formData.set("id", data.id);
         formData.set("pelapor", data.pelapor);
@@ -64,7 +71,7 @@ export default function FormLaporEdit(data: Laporan) {
       <Input defaultValue={data.sasaran} label="Sasaran" labelPlacement="outside" name="sasaran" type="text" />
 
       <div>
-        <UploadImage/>
+        <UploadImage laporan_id={data.id} id={""} file_name={""} image_url={""}/>
       </div>
 
       <Textarea

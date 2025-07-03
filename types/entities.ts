@@ -35,3 +35,23 @@ export type ModalProps = {
 
 export type DetailModalProps = ModalProps;
 export type EditModalProps = ModalProps;
+
+export type User = {
+  id: string;
+  nama_depan: string | null;
+  nama_belakang: string | null;
+  email: string;
+  password: string;
+  is_admin: boolean;
+  role: string;
+  wilayah_kerja: string | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export type foto = {
+  id?: string
+  laporan_id: string
+  file_name: string
+  image_url: string
+}
