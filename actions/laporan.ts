@@ -10,9 +10,9 @@ export async function handleInsertLaporan(formData: FormData) {
 }
 
 export async function handleUpdateLaporan(formData:FormData) {
-  const { id, pelapor, perihal, tempat, pelaksana, sasaran, bentuk_kegiatan, tanggal, waktu } = Object.fromEntries(formData) as Record<string, string>
+  const { id, pelapor, perihal, tempat, pelaksana, sasaran, bentuk_kegiatan, tanggal, waktu, hasil_kegiatan } = Object.fromEntries(formData) as Record<string, string>
 
-  return await updateLaporan({ id, pelapor, perihal, tempat, pelaksana, sasaran, bentuk_kegiatan, tanggal, waktu })
+  return await updateLaporan({ id, pelapor, perihal, tempat, pelaksana, sasaran, bentuk_kegiatan, tanggal, waktu, hasil_kegiatan })
 }
 
 export async function handleInsertFoto(data: foto) {

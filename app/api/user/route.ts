@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
+import { getUser } from "@/lib/data"; // or your user fetching logic
 
-import { getUser } from "@/lib/data";
+export async function POST(req: Request) {
+  const { email, password } = await req.json();
+  const user = await getUser(email);
 
-export async function POST(request: Request) {
-  try {
-    const body = await request.json();
-    const { email } = body;
-    const data = await getUser(email);
-
-    return NextResponse.json(data);
-  } catch (err) {
-    return NextResponse.json({ error: "Failed to fetch data", msg: err }, { status: 500 });
+  if (!user || user.password !== password) {
+    return NextResponse.json({ message: "Email atau password salah." }, { status: 401 });
   }
+
+  // Don't send password back!
+  const { id, nama_depan } = user;
+  return NextResponse.json({ id, nama_depan });
 }
 
 // export async function POST(request: Request) {

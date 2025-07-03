@@ -15,16 +15,18 @@ export type LaporanInput = LaporanBase & {
 
 export type LaporanUpdate = LaporanBase & {
   id: string;
+  hasil_kegiatan: string;
 };
 
 export type Laporan = Partial<LaporanBase> & {
   id: string;
+  user_id?: string
   perihal: string;
   tempat: string;
   pelapor: string;
   status: string;
   tanggal: string;
-  hasilYangDicapai?: string;
+  hasil_kegiatan?: string;
 };
 
 export type ModalProps = {

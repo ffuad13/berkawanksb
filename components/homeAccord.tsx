@@ -12,12 +12,12 @@ export default function HomeAccord() {
       <AccordionItem key="1" aria-label="Ditjen PKH Kementan RI" title="Ditjen PKH Kementan RI">
         <Insta/>
       </AccordionItem>
-      <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+      {/* <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
         {defaultContent}
       </AccordionItem>
       <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
         {defaultContent}
-      </AccordionItem>
+      </AccordionItem> */}
     </Accordion>
   );
 }

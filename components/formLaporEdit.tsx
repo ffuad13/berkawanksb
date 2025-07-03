@@ -15,6 +15,7 @@ export default function FormLaporEdit(data: Laporan) {
 	const router = useRouter();
 
 	const [hour, minute] = (data.waktu?.split(":") ?? ["0", "0"]);
+  const isSelesai = data.status === "selesai"
 
   return (
     <Form
@@ -26,6 +27,11 @@ export default function FormLaporEdit(data: Laporan) {
 
         if (!user_id) {
           alert("Anda harus login terlebih dahulu untuk mengubah laporan.");
+          return;
+        }
+
+        if (user_id !== data.user_id) {
+          alert("Anda tidak dapat mengubah laporan ini.");
           return;
         }
 
@@ -70,19 +76,27 @@ export default function FormLaporEdit(data: Laporan) {
 
       <Input defaultValue={data.sasaran} label="Sasaran" labelPlacement="outside" name="sasaran" type="text" />
 
+      <Textarea
+        defaultValue={data.bentuk_kegiatan ?? ""}
+        label="Bentuk Kegiatan"
+        labelPlacement="outside"
+        name="bentuk_kegiatan"
+      />
+
+      <Textarea
+        defaultValue={data.hasil_kegiatan ?? ""}
+        label="Hasil"
+        labelPlacement="outside"
+        name="hasil_kegiatan"
+        placeholder="Jelaskan hasil kegiatan"
+      />
+
       <div>
         <UploadImage laporan_id={data.id} id={""} file_name={""} image_url={""}/>
       </div>
 
-      <Textarea
-        defaultValue={data.bentuk_kegiatan}
-        label="Bentuk Kegiatan"
-        labelPlacement="outside"
-        name="bentuk_kegiatan"
-        placeholder="Jelaskan bentuk kegiatan"
-      />
       <div className="flex gap-2">
-        <Button className="mr-2" color="primary" type="submit" isLoading={isPending}>
+        <Button className="mr-2" color="primary" type="submit" isLoading={isPending} isDisabled={isSelesai}>
           Simpan
         </Button>
       </div>

@@ -7,7 +7,7 @@ export default function EditModal({ isOpen, onClose, data }: EditModalProps) {
   if (!data) return null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} scrollBehavior="inside">
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1 text-center">Ubah Laporan</ModalHeader>
         <ModalBody>

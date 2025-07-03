@@ -66,6 +66,7 @@ export async function updateLaporan(data: LaporanUpdate) {
     bentuk_kegiatan,
     tanggal,
     waktu,
+    hasil_kegiatan
   } = data;
 
   try {
@@ -79,7 +80,8 @@ export async function updateLaporan(data: LaporanUpdate) {
         sasaran = ${sasaran},
         bentuk_kegiatan = ${bentuk_kegiatan},
         tanggal = ${tanggal},
-        waktu = ${waktu}
+        waktu = ${waktu},
+        hasil_kegiatan = ${hasil_kegiatan}
       WHERE id = ${id};
     `;
   } catch (e) {

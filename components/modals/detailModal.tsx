@@ -3,7 +3,6 @@ import { DetailModalProps } from "@/types/entities";
 import { formatDateToLocal } from "@/lib/uitls";
 import FotoGallery from '@/components/FotoGallery'
 
-// Helper component for info items
 function InfoItem({ label, value }: { label: string; value?: string }) {
   return (
     <div className="p-2 bg-gray-50 rounded">
@@ -19,7 +18,7 @@ export default function DetailModal({ isOpen, onClose, data }: DetailModalProps)
   const timeDate = formatDateToLocal(data.tanggal, data.waktu).split("pukul");
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} scrollBehavior="outside">
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1 text-center">Detail Laporan</ModalHeader>
         <ModalBody>
@@ -37,7 +36,7 @@ export default function DetailModal({ isOpen, onClose, data }: DetailModalProps)
                 <InfoItem label="Bentuk Kegiatan" value={data.bentuk_kegiatan ?? ""} />
               </div>
               <div className="bg-gray-50 rounded my-4">
-                <InfoItem label="Hasil" value={data.hasilYangDicapai}/>
+                <InfoItem label="Hasil" value={data.hasil_kegiatan}/>
               </div>
               <Divider className="my-4" />
               <FotoGallery laporan_id={data.id}/>
