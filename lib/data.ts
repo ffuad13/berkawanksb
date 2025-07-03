@@ -122,6 +122,20 @@ export async function insertFoto(data: foto) {
       );
     `;
   } catch (e) {
-    throw new Error("Failed to insert laporan", { cause: e });
+    throw new Error("Failed to insert foto", { cause: e });
+  }
+}
+
+export async function getFotoByLaporanId(laporan_id: string) {
+  try {
+
+    const result = await sql`
+    SELECT * FROM foto
+    WHERE laporan_id = ${laporan_id}
+    `;
+
+    return result
+  } catch (e) {
+    throw new Error("Failed to get user", { cause: e });
   }
 }

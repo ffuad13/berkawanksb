@@ -19,7 +19,6 @@ export default function UploadImage({ laporan_id }: foto) {
       }}
       uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!}
       onSuccess={async (result) => {
-        console.log('result', result)
         const info = result?.info as CloudinaryUploadWidgetInfo;
 
         if (Array.isArray(info)) {
