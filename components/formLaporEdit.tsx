@@ -16,6 +16,7 @@ export default function FormLaporEdit(data: Laporan) {
 
 	const [hour, minute] = (data.waktu?.split(":") ?? ["0", "0"]);
   const isSelesai = data.status === "selesai"
+  const user_id = typeof window !== "undefined" ? localStorage.getItem("user_id") : null;
 
   return (
     <Form
@@ -23,7 +24,6 @@ export default function FormLaporEdit(data: Laporan) {
       onSubmit={(e) => {
         e.preventDefault();
 
-        const user_id = typeof window !== "undefined" ? localStorage.getItem("user_id") : null;
 
         if (!user_id) {
           alert("Anda harus login terlebih dahulu untuk mengubah laporan.");
@@ -92,7 +92,7 @@ export default function FormLaporEdit(data: Laporan) {
       />
 
       <div>
-        <UploadImage laporan_id={data.id} id={""} file_name={""} image_url={""}/>
+        <UploadImage laporan_id={data.id} id={""} file_name={""} image_url={""} disabled={!user_id}/>
       </div>
 
       <div className="flex gap-2">

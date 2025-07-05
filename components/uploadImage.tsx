@@ -7,7 +7,7 @@ import { handleInsertFoto } from "@/actions/laporan";
 import { CameraIcon } from "./icons";
 import { foto } from "@/types/entities";
 
-export default function UploadImage({ laporan_id }: foto) {
+export default function UploadImage({ laporan_id, disabled = false }: foto & {disabled?: boolean}) {
   const [resources, setResources] = React.useState<CloudinaryUploadWidgetInfo[]>([]);
 
   return (
@@ -53,6 +53,7 @@ export default function UploadImage({ laporan_id }: foto) {
             <Button
               startContent={<CameraIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />}
               onPress={handleOnClick}
+              isDisabled={disabled}
             >
               Upload Kegiatan
             </Button>
